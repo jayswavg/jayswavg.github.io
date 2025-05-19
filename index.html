@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayden Telfort - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            color: #cccccc;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #2a2a2a;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle background pattern */
+        .resume-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(177, 156, 217, 0.05) 0%, transparent 80%);
+            pointer-events: none;
+        }
+        
+        /* Header styling */
+        header {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(177, 156, 217, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #b19cd9;
+            font-size: 3.5em; /* Increased from 2.5em to 3.5em */
+            font-weight: 800; /* Increased from 700 to 800 for extra boldness */
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-info {
+            text-align: center;
+            color: #aaaaaa;
+            font-size: 1.05em;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .contact-info span::before {
+            content: "•";
+            margin-right: 10px;
+            color: #b19cd9;
+        }
+        
+        .contact-info span:first-child::before {
+            display: none;
+        }
+        
+        /* Section styling */
+        .section {
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        
+        h2 {
+            color: #b19cd9;
+            border-bottom: 2px solid #b19cd9;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #b19cd9;
+            animation: expandWidth 1.5s ease-in-out;
+        }
+        
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        
+        .entry-title {
+            flex-grow: 1;
+            margin-right: 15px;
+        }
+        
+        .job-title, .education-degree {
+            font-weight: 600;
+            color: #dddddd;
+            font-size: 1.1em;
+            margin-bottom: 3px;
+        }
+        
+        .company-university {
+            font-style: italic;
+            color: #cccccc;
+        }
+        
+        .entry-date {
+            flex-shrink: 0;
+            text-align: right;
+            color: #b19cd9;
+            font-weight: 500;
+            background: rgba(177, 156, 217, 0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        /* Bullet points styling */
+        ul {
+            list-style: none;
+            margin-left: 5px;
+            padding-left: 0;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            transition: transform 0.2s ease;
+        }
+        
+        ul li:hover {
+            transform: translateX(5px);
+        }
+        
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: #b19cd9;
+            font-size: 1.2em;
+            line-height: 1.4;
+        }
+        
+        /* Skills section */
+        .skills-list p {
+            margin-bottom: 15px;
+        }
+        
+        .skills-list .font-bold {
+            color: #b19cd9;
+            font-weight: 600;
+            margin-right: 10px;
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        .skills-list span:not(.font-bold) {
+            display: inline-block;
+            background: linear-gradient(135deg, #4a3a5a, #5d4a70);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skills-list span:not(.font-bold):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #5d4a70, #4a3a5a);
+        }
+        
+        /* Highlight styling */
+        .highlight {
+            color: #b19cd9;
+            font-weight: 600;
+        }
+        
+        /* Footer styling */
+        .resume-footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777777;
+            animation: fadeIn 1s ease-in;
+            animation-delay: 0.8s;
+            animation-fill-mode: both;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 50px; }
+        }
+        
+        /* Print-friendly adjustments */
+        @media print {
+            body {
+                background: none;
+                color: #333;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                background: white;
+            }
+            
+            h1, h2, .highlight, .entry-date {
+                color: #6a4c93;
+            }
+            
+            h1 {
+                font-size: 3.5em;
+                font-weight: 800;
+            }
+            
+            .skills-list span:not(.font-bold) {
+                background: #f0f0f0;
+                color: #333;
+                box-shadow: none;
+            }
+            
+            ul li::before {
+                color: #6a4c93;
+            }
+            
+            /* Disable animations for print */
+            .section, h2::after, .resume-footer {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+
+        <header>
+            <h1 class="animate__animated animate__fadeIn">Jayden Telfort</h1>
+            <div class="contact-info animate__animated animate__fadeIn animate__delay-1s">
+                <span>53 5th Street, Valley Stream NY, 11581</span>
+                <span>jaytelfort@gmail.com</span>
+                <span>(516) 672-3206</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Objective</h2>
+            <p>
+                A young, driven professional with a keen interest in specializing in <span class="highlight">Cyber, Software & Cloud</span>. Proficient in leveraging innovative solutions to streamline processes, enhance security postures, and drive strategic initiatives. Proven expertise in <span class="highlight">automation, programming, threat intelligence, and reputational due diligence</span>, I'm skilled at identifying vulnerabilities, implementing solutions, and collaborating effectively to achieve impactful outcomes. I also love collaborating with teams to make a real impact. Let's build and innovate!
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="mb-8">
+                <div class="entry-header">
+                    <div class="entry-title">
+                        <h3 class="job-title">Lead Information Security Analyst | Rotational Manager</h3>
+                        <p class="company-university">Rowan University, Glassboro, NJ</p>
+                    </div>
+                    <div class="entry-date">December 2023 – June 2025</div>
+                </div>
+                <ul>
+                    <li>Transformed security threat analysis and viewing times from a week to <span class="highlight">5 minutes</span> by developing automated tools and software using programming languages, significantly boosting efficiency.</li>
+                    <li>Created custom dashboards (<span class="highlight">Vulnerability Management, User Training Metrics</span>) with Google Apps Script, HTML, CSS, and JavaScript, providing leadership with clear metrics for data-driven decisions.</li>
+                    <li>Managed and documented DLP incidents involving sensitive information, ensuring <span class="highlight">PCI DSS compliance</span> and timely reporting.</li>
+                    <li>Assisted in developing a comprehensive budget dashboard in Google App Scripts for the IT Security Board, enhancing data-driven fiscal decisions.</li>
+                    <li>Maintained accurate and up-to-date IP security databases for network monitoring and incident response.</li>
+                    <li>Investigated new technologies, including potential AI use cases for sensitive information, presenting actionable recommendations to the CIO.</li>
+                    <li>Contributed insights and budgetary recommendations to the CIO, CTO, and Associate Director of Fiscal Affairs, influencing strategic decisions.</li>
+                    <li>Ensured operational integrity and compliance for <span class="highlight">400+ critical applications</span>, maintaining a robust university security posture.</li>
+                    <li>Developed a <span class="highlight">comprehensive vulnerability dashboard</span>, integrating data from <span class="highlight">Homeland Security</span> and collaborating closely with the <span class="highlight">SEC Ops team</span> to pull Tenable data. This cross-functional effort greatly improved our ability to assess and visualize the organization's security posture effectively.</li>
+                    <li>Played a key leadership role in a critical project addressing external security audit findings, substantially enhancing the clarity and impact of reporting to executive stakeholders by developing robust data metrics and visualizations.</li>
+                    <li>Mentored and supervised students in the rotational program, teaching security concepts and procedures through hands-on tasks mirroring a typical security analyst role.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="entry-header">
+                    <div class="entry-title">
+                        <h3 class="job-title">Digital Marketing Intern</h3>
+                        <p class="company-university">Rowan University, Glassboro, NJ</p>
+                    </div>
+                    <div class="entry-date">January 2024 – May 2024</div>
+                </div>
+                <ul>
+                    <li>Executed digital marketing campaigns across social media platforms, increasing engagement metrics.</li>
+                    <li>Analyzed website traffic and user behavior using Google Analytics to optimize marketing strategies.</li>
+                    <li>Created websites, content for posts, emails, and social media aligned with brand voice and SEO best practices.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div>
+                <div class="entry-header">
+                    <div class="entry-title">
+                        <h3 class="education-degree">Bachelor of Science in Computer Science</h3>
+                        <p class="company-university">Rowan University, Glassboro, NJ</p>
+                    </div>
+                    <div class="entry-date">September 2023 - May 2025</div>
+                </div>
+                <ul>
+                    <li>Concentration: Cybersecurity</li>
+                    <li>National Honors for Speaking a Language (Spanish)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-list">
+                <p><span class="font-bold">Programming:</span>
+                    <span>Java</span><span>C++</span><span>JavaScript</span><span>CSS/HTML</span><span>Python</span><span>SQL</span><span>PineScript</span><span>AI (+1 years)</span>
+                </p>
+                <p><span class="font-bold">Frameworks:</span>
+                    <span>Vue.js</span><span>React.js</span><span>Astro</span>
+                </p>
+                <p><span class="font-bold">Tools:</span>
+                    <span>Nmap</span><span>Tenable</span><span>Netskope</span><span>OneTrust</span><span>SecurityScorecard</span><span>Stealth Suite</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Certifications</h2>
+            <ul>
+                <li>CompTIA Security+ (Expected June 2025)</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>References</h2>
+            <p>Available upon request.</p>
+        </section>
+
+    </div>
+
+    <footer class="resume-footer">
+        <div class="flex flex-col items-center">
+            <p class="mb-3">Made with HTML & CSS :D</p>
+            <div class="qr-section flex items-center gap-4 mt-2">
+                <div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://jayswavg.github.io" alt="QR Code to online resume" class="qr-code" />
+                </div>
+                <div class="qr-text text-left">
+                    <p class="text-sm">Scan to view the<br>animated version</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
