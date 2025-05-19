@@ -254,47 +254,149 @@
         
         /* Print-friendly adjustments */
         @media print {
+    body {
+        background: white !important;
+        color: #333 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .resume-container {
+        box-shadow: none !important;
+        padding: 20px !important;
+        background: white !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    h1, h2, .highlight, .entry-date {
+        color: #6a4c93 !important;
+    }
+    
+    h1 {
+        font-size: 3.5em !important;
+        font-weight: 800 !important;
+    }
+    
+    .skills-list span:not(.font-bold) {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    ul li::before {
+        color: #6a4c93 !important;
+    }
+    
+    /* Disable animations for print */
+    .section, h2::after, .resume-footer {
+        animation: none !important;
+    }
+    
+    /* Make footer text dark for print */
+    .resume-footer {
+        color: #333333 !important;
+        font-weight: 600 !important;
+    }
+}
+
+        /* Fix for print highlighting */
+        @media print {
+            ::selection {
+                background: transparent !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             body {
-                background: none;
-                color: #333;
-            }
-            
-            .resume-container {
-                box-shadow: none;
-                padding: 0;
-                background: white;
-            }
-            
-            h1, h2, .highlight, .entry-date {
-                color: #6a4c93;
-            }
-            
-            h1 {
-                font-size: 3.5em;
-                font-weight: 800;
-            }
-            
-            .skills-list span:not(.font-bold) {
-                background: #f0f0f0;
-                color: #333;
-                box-shadow: none;
-            }
-            
-            ul li::before {
-                color: #6a4c93;
-            }
-            
-            /* Disable animations for print */
-            .section, h2::after, .resume-footer {
-                animation: none !important;
-            }
-            
-            /* Make footer text dark for print */
-            .resume-footer {
-                color: #333333;
-                font-weight: 600;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
+
+        /* Force background colors and images to print */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+    
+    html, body {
+        background: linear-gradient(135deg, #1a1a1a, #333333) !important;
+        color: #cccccc !important;
+    }
+    
+    .resume-container {
+        background-color: #2a2a2a !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    /* Keep all original colors */
+    h1, h2, .highlight {
+        color: #b19cd9 !important;
+    }
+    
+    .entry-date {
+        color: #b19cd9 !important;
+        background: rgba(177, 156, 217, 0.1) !important;
+    }
+    
+    .skills-list span:not(.font-bold) {
+        background: linear-gradient(135deg, #4a3a5a, #5d4a70) !important;
+        color: #ffffff !important;
+    }
+    
+    ul li::before {
+        color: #b19cd9 !important;
+    }
+    
+    .resume-footer {
+        color: #ffffff !important;
+    }
+}
+
+/* Fix for white margins in print */
+@page {
+    size: letter;
+    margin: 0mm !important; /* Zero margin on all sides */
+}
+
+@media print {
+    html, body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        background: linear-gradient(135deg, #1a1a1a, #333333) !important;
+    }
+    
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1a1a1a, #333333) !important;
+        z-index: -1;
+    }
+    
+    .resume-container {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+    }
+}
     </style>
 </head>
 <body>
