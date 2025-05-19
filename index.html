@@ -224,7 +224,7 @@
             text-align: center;
             margin-top: 40px;
             font-size: 0.9em;
-            color: #777777;
+            color: #ffffff; /* Changed the color from gray to white for visibility */
             animation: fadeIn 1s ease-in;
             animation-delay: 0.8s;
             animation-fill-mode: both;
@@ -287,6 +287,12 @@
             /* Disable animations for print */
             .section, h2::after, .resume-footer {
                 animation: none !important;
+            }
+            
+            /* Make footer text dark for print */
+            .resume-footer {
+                color: #333333;
+                font-weight: 600;
             }
         }
     </style>
